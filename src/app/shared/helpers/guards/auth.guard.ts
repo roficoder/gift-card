@@ -1,8 +1,8 @@
 import { Injectable } from '@angular/core';
 import { CanActivate, Router } from '@angular/router';
-import { PopupsService } from 'src/app/services/popups.service';
-import { RoutingService } from 'src/app/services/routing.service';
-import { StorageService } from 'src/app/services/storage.service';
+import { AuthService } from 'src/app/services/auth.service';
+import { UtilityService } from 'src/app/services/utility.service';
+
 
 @Injectable({
   providedIn: 'root',
@@ -10,20 +10,18 @@ import { StorageService } from 'src/app/services/storage.service';
 export class AuthGuard implements CanActivate {
   public value: boolean;
   constructor(
-    public routing: RoutingService,
-    private popupsService: PopupsService,
-    public storage: StorageService
+    private authService: AuthService,
+    private _utilityService: UtilityService
   ) {
     this.value = false;
   }
 
+  home = '/'
   canActivate(): boolean {
-    const isAuthenticated = this.storage.isAuthenticated();
+    const isAuthenticated = this.authService._isAuthenticated()
     if (!isAuthenticated) {
-      this.storage.removeAllProperties();
-      this.routing.goToHome();
-
-      this.popupsService.openLoginPopup();
+      this._utilityService.removeAllProperties();
+      this._utilityService.navigateTo(this.home)
     }
     return true;
   }

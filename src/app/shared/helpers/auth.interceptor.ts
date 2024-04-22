@@ -8,15 +8,15 @@ import {
 } from '@angular/common/http';
 import { Observable, throwError } from 'rxjs';
 import { catchError } from 'rxjs/operators';
-import { StorageService } from 'src/app/services/storage.service';
-import { PopupsService } from 'src/app/services/popups.service';
+// import { StorageService } from 'src/app/services/storage.service';
+// import { PopupsService } from 'src/app/services/popups.service';
+import { UtilityService } from 'src/app/services/utility.service';
 
 @Injectable()
 export class AuthInterceptor implements HttpInterceptor {
   constructor(
-    private storage: StorageService,
-    private popupSer: PopupsService
-  ) {}
+    private _utility: UtilityService,
+  ) { }
 
   /**
    * Intercept
@@ -33,7 +33,7 @@ export class AuthInterceptor implements HttpInterceptor {
     newReq = req.clone({
       headers: req.headers.set(
         'Authorization',
-        'Bearer ' + this.storage.getToken(),
+        'Bearer ' + this._utility.getToken(),
       ).set('Access-Control-Allow-Origin', '*'),
     });
     // Response
@@ -53,8 +53,8 @@ export class AuthInterceptor implements HttpInterceptor {
           //   '',
           //   'error'
           // );
-          this.storage.removeAllProperties();
-          this.popupSer.openLoginPopup();
+          this._utility.removeAllProperties();
+          this._utility.openLoginPopup();
         } else if (
           error instanceof HttpErrorResponse &&
           (error.status === 500 || error.status === 400)
