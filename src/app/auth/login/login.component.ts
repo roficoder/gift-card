@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { AuthService } from '../auth.service';
 import { UtilityService } from 'src/app/shared/services/utility.service';
+import { myRoutes } from 'src/app/shared/helpers/enums/routes';
 
 @Component({
   selector: 'login',
@@ -12,7 +13,7 @@ export class LoginComponent {
   constructor(private auth: AuthService, private utility: UtilityService) {
     const isAuth = this.auth._isAuthenticated()
     if (!isAuth) {
-      this.utility.navigateTo('dashboard/auth')
+      this.utility.navigateTo(myRoutes.dashboard)
     } else {
       this.utility.navigateTo('dashboard/home')
     }
