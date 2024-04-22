@@ -10,7 +10,7 @@ import { Observable, throwError } from 'rxjs';
 import { catchError } from 'rxjs/operators';
 // import { StorageService } from 'src/app/services/storage.service';
 // import { PopupsService } from 'src/app/services/popups.service';
-import { UtilityService } from 'src/app/services/utility.service';
+import { UtilityService } from 'src/app/shared/services/utility.service';
 
 @Injectable()
 export class AuthInterceptor implements HttpInterceptor {
