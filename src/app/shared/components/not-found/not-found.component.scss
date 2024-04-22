@@ -1,0 +1,18 @@
+.not-found {
+    display: flex;
+    align-items: center;
+    gap: 2em;
+    justify-content: center;
+    padding-block: 4em;
+    flex-wrap: wrap;
+
+    .left {
+        h1 {
+            font-size: 50px;
+        }
+
+        p {
+            font-size: 26px;
+        }
+    }
+}

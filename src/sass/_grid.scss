@@ -1,0 +1,92 @@
+@use './util' as u;
+
+.grid-8{
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+
+    @include u.breakpoint(tabs){
+        grid-template-columns: repeat(6, 1fr);
+    }
+
+    @include u.breakpoint(stabs){
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    @include u.breakpoint(smobile){
+        grid-template-columns: 280px;
+        justify-content: center;
+    }
+
+}
+
+.grid-5{
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+
+    @include u.breakpoint(tabs){
+        grid-template-columns: repeat(3, 1fr);
+    }
+
+    @include u.breakpoint(stabs){
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    @include u.breakpoint(smobile){
+        grid-template-columns: 280px;
+        justify-content: center;
+    }
+}
+
+.grid-4{
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+
+    @include u.breakpoint(tabs){
+        grid-template-columns: repeat(3, 1fr);
+    }
+
+    @include u.breakpoint(stabs){
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    @include u.breakpoint(smobile){
+        grid-template-columns: 280px;
+        justify-content: center;
+    }
+}
+
+.grid-4-auto{
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(225px, 23%));
+}
+
+.grid-2{
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+
+    @include u.breakpoint(tabs){
+        grid-template-columns: repeat(1, 1fr);
+    }
+
+}
+
+
+
+.gap-05{
+    gap: 0.5em;
+}
+.gap-1{
+    gap: 1em;
+}
+.gap-2{
+    gap: 2em;
+}
+.gap-3{
+    gap: 3em;
+}
+.gap-4{
+    gap: 4em;
+}
+.gap-5{
+    gap: 5em;
+}

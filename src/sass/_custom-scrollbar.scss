@@ -1,0 +1,73 @@
+@mixin custom-scroll-y($scrollbar-width, $background) {
+
+  /* Webkit */
+  &::-webkit-scrollbar {
+    width: $scrollbar-width;
+  }
+
+  &::-webkit-scrollbar-track {
+    background-color: #f1f1f1;
+  }
+
+  &::-webkit-scrollbar-thumb {
+    background-color: var($background);
+    border-radius: $scrollbar-width / 2;
+  }
+
+  &::-webkit-scrollbar-thumb:hover {
+    background-color: var($background);
+  }
+}
+
+@mixin custom-scroll-x($scrollbar-width, $background) {
+
+  /* Webkit */
+  &::-webkit-scrollbar {
+    height: $scrollbar-width;
+  }
+
+  &::-webkit-scrollbar-track {
+    background-color: #f1f1f1;
+  }
+
+  &::-webkit-scrollbar-thumb {
+    background-color: var($background);
+    border-radius: $scrollbar-width / 2;
+  }
+
+  &::-webkit-scrollbar-thumb:hover {
+    background-color: var($background);
+  }
+}
+
+
+
+.custom-scroll-y-8 {
+  @include custom-scroll-y(8px,--footer-bg);
+}
+.custom-scroll-b-y-8 {
+  @include custom-scroll-y(8px, --primary);
+}
+
+.custom-scroll-y-10 {
+  @include custom-scroll-y(10px, --footer-bg);
+}
+.custom-scroll-b-y-10 {
+  @include custom-scroll-y(10px, --primary);
+}
+
+.custom-scroll-y-12 {
+  @include custom-scroll-y(12px, --footer-bg);
+}
+
+.custom-scroll-b-y-12 {
+  @include custom-scroll-y(12px, --primary);
+}
+
+.custom-scroll-x-8{
+  @include custom-scroll-y(8px, --footer-bg);
+}
+
+.custom-scroll-b-x-8{
+  @include custom-scroll-x(8px, --primary);
+}

@@ -1,0 +1,22 @@
+<div class="error-msg-main">
+  <span *ngIf="field?.errors?.['required'] && field.touched">
+    This field is required
+  </span>
+  <span *ngIf="field?.errors?.['pattern'] && field.touched">
+    This field is invalid
+  </span>
+  <span *ngIf="this.checkbox && this.customTouch"> Select at least one </span>
+  <span *ngIf="this.select && this.customTouch"> Please select one </span>
+  <span
+    *ngIf="!field?.errors?.['required'] && field?.touched && this.min && this.max &&
+        this.field.control.value > this.max"
+  >
+    Value maximum than the range
+  </span>
+  <span
+    *ngIf="!field?.errors?.['required'] && field?.touched && this.min && this.max &&
+                this.field.control.value < this.min"
+  >
+    Value minimum than the range
+  </span>
+</div>
